@@ -1,7 +1,10 @@
 import * as React from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useProgress } from "@react-three/drei";
 
 export default function HyperSplash({ active }: { active: boolean }) {
+
+  const { progress } = useProgress(); // ← direkt här
 
   return (
     <AnimatePresence>
@@ -21,7 +24,7 @@ export default function HyperSplash({ active }: { active: boolean }) {
           <motion.div
               className="h-full"
               initial={{ width: "0%" }}
-              animate={{ width: "100%" }}
+              animate={{ width: `${progress}%` }}
               transition={{ duration: 3, ease: "easeInOut" }}
               style={{
               background: "linear-gradient(90deg, #9B5DE5, #F15BB5)", 
