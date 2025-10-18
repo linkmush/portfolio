@@ -63,7 +63,7 @@ function Starfield() {
 
       for (let star of stars) {
         star.prevZ = star.z;
-        star.z -= 35;
+        star.z -= 50;
 
         if (star.z <= 0) {
           star.x = (Math.random() - 0.5) * canvas.width;
