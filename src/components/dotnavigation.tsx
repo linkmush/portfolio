@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const sections = ["heroSection", "experienceSection", "aboutSection", "contactSection"];
+const sections = ["heroSection", "experienceSection", "skills", "contactSection"];
 
 export const DotNavigation = () => {
   const [active, setActive] = useState<string>("heroSection");

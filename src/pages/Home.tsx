@@ -1,5 +1,6 @@
 import { DotNavigation } from "@/components/dotnavigation";
 import { HeroSection } from "@/components/hero-section";
+import OrbitSkills from "@/components/orbitskills";
 import { WorkExperience } from "@/components/workexperience";
 
 export const Home = ({ onLoaded }: { onLoaded: () => void }) => {
@@ -18,11 +19,11 @@ export const Home = ({ onLoaded }: { onLoaded: () => void }) => {
           <WorkExperience />
         </section>
 
-        {/* <section id="aboutSection" className="h-screen snap-start bg-black text-white">
-          About here...
+        <section id="skills" className="h-screen snap-start bg-black text-white">
+          <OrbitSkills/>
         </section>
 
-        <section id="contactSection" className="h-screen snap-start bg-purple-950 text-white">
+        {/* <section id="contactSection" className="h-screen snap-start bg-purple-950 text-white">
           Contact here...
         </section> */}
       </div>
