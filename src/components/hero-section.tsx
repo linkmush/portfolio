@@ -12,7 +12,7 @@ type PrimitiveProps = Omit<React.ComponentPropsWithoutRef<"primitive">, "object"
 
 function SpaceModel(props: PrimitiveProps) {
   const ref = useRef<THREE.Group>(null)
-  const { scene } = useGLTF("/globe3d.glb")
+  const { scene } = useGLTF("/scene.gltf")
 
   useFrame(() => {
     if (ref.current) {
