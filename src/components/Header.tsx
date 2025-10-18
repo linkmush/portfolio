@@ -36,9 +36,9 @@ export const Header = () => {
         {/* Nav */}
         <nav className="flex gap-8">
           <NavLink href="/">{t("nav.home")}</NavLink>
-          <NavLink href="/about">{t("nav.about")}</NavLink>
-          <NavLink href="/projects">{t("nav.projects")}</NavLink>
-          <NavLink href="/lab">{t("nav.lab")}</NavLink>
+          <NavLink href="/menu">{t("nav.menu")}</NavLink>
+          <NavLink href="/gallery">{t("nav.gallery")}</NavLink>
+          <NavLink href="/contact">{t("nav.contact")}</NavLink>
         </nav>
 
         {/* Language Picker */}

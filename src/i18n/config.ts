@@ -3,14 +3,14 @@ import { initReactI18next } from 'react-i18next';
 
 import enTranslation from './locales/en/translation.json';
 import svTranslation from './locales/sv/translation.json';
-import viTranslation from './locales/vi/translation.json';
+import thTranslation from './locales/th/translation.json';
 
 export const supportedLngs: {
   [key: string]: { name: string; locale: string };
 } = {
   en: { name: 'English', locale: 'en-US' },
   sv: { name: 'Svenska', locale: 'sv-SE' },
-  vi: { name: 'Tiếng Việt', locale: 'vi-VN' },
+  th: { name: 'ไทย', locale: 'th-TH' },
 };
 
 const fallbackLng = 'sv';
@@ -35,7 +35,7 @@ i18next.use(initReactI18next).init({
   resources: {
     en: { translation: enTranslation },
     sv: { translation: svTranslation },
-    vi: { translation: viTranslation },
+    th: { translation: thTranslation },
   },
   lng: 'sv',
   fallbackLng,

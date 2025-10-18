@@ -1,10 +1,31 @@
+import { DotNavigation } from "@/components/dotnavigation";
 import { HeroSection } from "@/components/hero-section";
+import { WorkExperience } from "@/components/workexperience";
 
 export const Home = () => {
   return (
-    <>
-    <HeroSection />
-    </>
+    <div className="relative h-screen">
+      {/* Dot navigation – fixeras till höger på skärmen */}
+      <DotNavigation />
+
+      {/* Scroll container med snapping */}
+      <div className="h-screen overflow-y-scroll snap-y snap-mandatory">
+        <section id="heroSection" className="h-screen snap-start">
+          <HeroSection />
+        </section>
+
+        <section id="experienceSection" className="h-screen snap-start">
+          <WorkExperience />
+        </section>
+
+        {/* <section id="aboutSection" className="h-screen snap-start bg-black text-white">
+          About here...
+        </section>
+
+        <section id="contactSection" className="h-screen snap-start bg-purple-950 text-white">
+          Contact here...
+        </section> */}
+      </div>
+    </div>
   );
 };
-

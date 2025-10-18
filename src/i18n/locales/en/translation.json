@@ -5,5 +5,48 @@
     "gallery": "Gallery",
     "contact": "Contact",
     "language": "Language"
+  },
+  "hero": {
+    "hello": "Hello! I am",
+    "subtitle": "A Software Developer who",
+    "headline": "Crafting digital solutions",
+    "headlineLast": "built to last",
+    "tagline": "Because meaningful products should be scalable, secure, and delightful to use.",
+    "role": "I'm a Software Engineer.",
+    "desc1": "With a foundation in <strong>.NET</strong> and over <strong>six years in IT support</strong>, I build secure and scalable digital solutions that solve real problems with precision and creativity.",
+    "desc2": "I gained hands-on experience as a <highlight>Fullstack Developer</highlight>, taking projects from backend architecture to intuitive frontends. Today, I co-found a <strong>startup AB</strong> focused on building impactful digital products.",
+    "desc3": "Now, I’m advancing in <strong>IT Security Development</strong>, combining engineering with a <em>security-first mindset</em> to deliver technology that’s not only powerful but resilient."
+  },
+  "work": {
+    "title": "Work Experience",
+    "learnMore": "Learn More",
+    "exp1": {
+      "title": "Fullstack Developer",
+      "company": "Inadra AB",
+      "years": "2024 - 2025",
+      "description": "Built a new business system from scratch with .NET Core Web API, TypeScript, and Tailwind.",
+      "details": "During my time at the company, I worked across the entire stack, from databases and relational handling to backend in .NET Core Web API and frontend in TypeScript.\nI was responsible for database structure and necessary changes.\nOn the frontend side, I built a responsive interface with TypeScript and Tailwind, customizing UI components.\nIn the backend, I implemented business logic and efficient data handling.\nThe system simplified the administration of company information, employees, and customer relations, improving workflows and internal communication."
+    },
+    "exp2": {
+      "title": "IT Support Technician",
+      "company": "COM7",
+      "years": "2019 - Present",
+      "description": "Solved network, hardware, and software issues for employees.",
+      "details": "Responsible for solving technical problems for employees by providing fast and efficient support both onsite and via remote assistance.\nDiagnosed and resolved network, hardware, and software issues.\nCreated and updated documentation for technical systems and procedures.\nThis position was held alongside my studies."
+    },
+    "exp3": {
+      "title": "Higher Vocational Education",
+      "company": "EC Utbildning",
+      "years": "2023 - 2025",
+      "description": "Studies in .NET, C#, ASP.NET, React, SQL, and CMS implementation.",
+      "details": "Studies included .NET web development with HTML, CSS, JavaScript for frontend, and C# plus ASP.NET for backend.\nData storage with SQL and CMS implementation.\nThe education provided a broad understanding of fullstack development, modern frameworks, and architectural principles."
+    },
+    "exp4": {
+      "title": "Sales Associate",
+      "company": "Kjell & Company",
+      "years": "2015 - 2018",
+      "description": "Helped customers with technical problems and product selection.",
+      "details": "As a sales associate, I assisted customers with product selection and provided technical advice.\nI used my technical knowledge to solve problems and give recommendations, requiring the ability to explain complex information in a simple way."
+    }
   }
 }

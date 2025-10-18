@@ -5,5 +5,47 @@
     "gallery": "Galleri",
     "contact": "Kontakt",
     "language": "Språk"
+  },
+  "hero": {
+    "hello": "Hej! Jag är",
+    "subtitle": "En systemutvecklare som",
+    "headline": "Bygger digitala lösningar",
+    "headlineLast": "som håller",
+    "tagline": "För att meningsfulla produkter ska vara skalbara, säkra och trevliga att använda.",
+    "desc1": "Med en grund i <strong>.NET</strong> och över <strong>sex år inom IT-support</strong> bygger jag säkra och skalbara digitala lösningar som löser verkliga problem med precision och kreativitet.",
+    "desc2": "Jag fick praktisk erfarenhet som <highlight>Fullstack-utvecklare</highlight>, där jag tog projekt från backend-arkitektur till intuitiva frontend-lösningar. Idag är jag medgrundare till ett <strong>startup AB</strong> som fokuserar på att bygga meningsfulla digitala produkter.",
+    "desc3": "Nu vidareutvecklar jag mig inom <strong>IT-säkerhetsutveckling</strong>, där jag kombinerar utveckling med ett <em>säkerhetsfokuserat tankesätt</em> för att leverera teknik som inte bara är kraftfull utan också motståndskraftig."
+  },
+  "work": {
+    "title": "Arbetslivserfarenhet",
+    "learnMore": "Läs mer",
+    "exp1": {
+      "title": "Fullstack-utvecklare",
+      "company": "Inadra AB",
+      "years": "2024 - 2025",
+      "description": "Utvecklade ett nytt affärssystem från grunden med .NET Core Web API, TypeScript och Tailwind.",
+      "details": "Under min tid på företaget arbetade jag med hela stacken från databaser och relationshantering till backend i .NET Core Web API och frontend i TypeScript.\nJag ansvarade för databasstruktur och nödvändiga förändringar.\nPå frontend-sidan byggde jag ett responsivt gränssnitt med TypeScript och Tailwind och anpassade UI-komponenter.\nI backend implementerade jag affärslogik och effektiv datahantering.\nSystemet förenklar administrationen av företagsinformation, anställda och kundrelationer, vilket förbättrar arbetsflödet och intern kommunikation."
+    },
+    "exp2": {
+      "title": "IT-Supporttekniker",
+      "company": "COM7",
+      "years": "2019 - Nutid",
+      "description": "Löste nätverks, hårdvaru och mjukvaruproblem för företagets anställda.",
+      "details": "Ansvarig för att lösa tekniska problem för företagets anställda genom att tillhandahålla snabb och effektiv support både på plats och via fjärranslutning.\nDiagnostiserade och löste nätverks, hårdvaru och programvaruproblem.\nUpprättade och uppdaterade dokumentation för tekniska system och procedurer.\nHade denna anställning parallellt med mina studier."
+    },
+    "exp3": {
+      "title": "Yrkeshögskoleutbildning",
+      "company": "EC Utbildning",
+      "years": "2023 - 2025",
+      "description": "Studier inom .NET, C#, ASP.NET, React, SQL, CMS-implementering.",
+      "details": "Studier inkluderade .NET-utveckling för webben med HTML, CSS, JavaScript för frontend och C# samt ASP.NET för backend.\nDatalagring med SQL och CMS-implementering.\nUtbildningen gav en bred förståelse för fullstack-utveckling, moderna ramverk och arkitekturprinciper."
+    },
+    "exp4": {
+      "title": "Butikssäljare",
+      "company": "Kjell & Company",
+      "years": "2015 - 2018",
+      "description": "Hjälpte kunder med tekniska problem och produktval.",
+      "details": "Som butikssäljare assisterade jag kunder med produktval och gav teknisk rådgivning.\nJag använde min tekniska kunskap för att lösa problem och ge rekommendationer, vilket krävde förmågan att förmedla komplex information på ett enkelt sätt."
+    }
   }
 }
