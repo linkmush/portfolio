@@ -2,7 +2,7 @@ import { DotNavigation } from "@/components/dotnavigation";
 import { HeroSection } from "@/components/hero-section";
 import { WorkExperience } from "@/components/workexperience";
 
-export const Home = () => {
+export const Home = ({ onLoaded }: { onLoaded: () => void }) => {
   return (
     <div className="relative h-screen">
       {/* Dot navigation – fixeras till höger på skärmen */}
@@ -11,7 +11,7 @@ export const Home = () => {
       {/* Scroll container med snapping */}
       <div className="h-screen overflow-y-scroll snap-y snap-mandatory">
         <section id="heroSection" className="h-screen snap-start">
-          <HeroSection />
+          <HeroSection onLoaded={onLoaded} />
         </section>
 
         <section id="experienceSection" className="h-screen snap-start">

@@ -4,8 +4,9 @@ import { EffectComposer, Bloom } from "@react-three/postprocessing"
 import { motion } from "framer-motion"
 import avatar from "../assets/avatar.png"
 import { useTranslation, Trans } from "react-i18next"
-import { useRef } from "react"
+import { Suspense, useRef } from "react"
 import * as THREE from "three"
+import Loader from "./loader"
 
 type PrimitiveProps = Omit<React.ComponentPropsWithoutRef<"primitive">, "object">;
 
@@ -22,7 +23,7 @@ function SpaceModel(props: PrimitiveProps) {
   return <primitive ref={ref} object={scene} {...props} />
 }
 
-export const HeroSection = () => {
+export const HeroSection = ({ onLoaded }: { onLoaded: () => void }) => {
   const { t } = useTranslation()
 
   return (
@@ -34,7 +35,10 @@ export const HeroSection = () => {
           <pointLight position={[10, 10, 10]} intensity={1.2} color="#ffffff" />
 
           {/* GLB-modellen – nu centrerad */}
+          <Suspense fallback={null}>
           <SpaceModel scale={8} position={[0, 0, 0]} />
+          <Loader onLoaded={onLoaded} />
+          </Suspense>
 
           {/* Glow-effekt */}
           <EffectComposer>

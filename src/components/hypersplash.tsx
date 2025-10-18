@@ -2,6 +2,7 @@ import * as React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function HyperSplash({ active }: { active: boolean }) {
+
   return (
     <AnimatePresence>
       {active && (
@@ -15,23 +16,23 @@ export default function HyperSplash({ active }: { active: boolean }) {
         >
           <Starfield />
 
-          {/* Glowande text */}
-            <div className="absolute top-0 left-0 w-full h-[3px] bg-black/70">
-            <motion.div
-                className="h-full"
-                initial={{ width: "0%" }}
-                animate={{ width: "100%" }}
-                transition={{ duration: 3, ease: "easeInOut" }}
-                style={{
-                background: "linear-gradient(90deg, #9B5DE5, #F15BB5)", 
-                boxShadow: `
-                    0 0 8px #9B5DE5,
-                    0 0 16px #F15BB5,
-                    0 0 24px #9B5DE5
-                `,
-                }}
-            />
-            </div>
+          {/* Progressbar */}
+          <div className="absolute top-0 left-0 w-full h-[3px] bg-black/70">
+          <motion.div
+              className="h-full"
+              initial={{ width: "0%" }}
+              animate={{ width: "100%" }}
+              transition={{ duration: 3, ease: "easeInOut" }}
+              style={{
+              background: "linear-gradient(90deg, #9B5DE5, #F15BB5)", 
+              boxShadow: `
+                  0 0 8px #9B5DE5,
+                  0 0 16px #F15BB5,
+                  0 0 24px #9B5DE5
+              `,
+              }}
+          />
+          </div>
         </motion.div>
       )}
     </AnimatePresence>
