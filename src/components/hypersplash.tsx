@@ -49,7 +49,7 @@ function Starfield() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
-    const stars = Array.from({ length: 1200 }).map(() => ({
+    const stars = Array.from({ length: 1500 }).map(() => ({
       x: (Math.random() - 0.5) * canvas.width,
       y: (Math.random() - 0.5) * canvas.height,
       z: Math.random() * canvas.width,
