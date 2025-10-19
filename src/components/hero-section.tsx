@@ -102,7 +102,7 @@ export const HeroSection = ({ onLoaded }: { onLoaded: () => void }) => {
             {t("hero.headline")} <br />
             <span className="font-bold">
               {t("hero.headlineLast") && (
-                <span className="text-purple-400 underline decoration-purple-600">
+                <span className="text-purple-400 decoration-purple-600">
                   {t("hero.headlineLast")}
                 </span>
               )}

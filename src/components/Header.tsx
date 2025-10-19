@@ -34,7 +34,7 @@ export const Header = () => {
         </RouterLink>
 
         {/* Nav */}
-        <nav className="flex gap-8">
+        <nav className="flex ml-auto mr-5 gap-8">
           <NavLink href="/">{t("nav.home")}</NavLink>
           <NavLink href="/menu">{t("nav.menu")}</NavLink>
           <NavLink href="/gallery">{t("nav.gallery")}</NavLink>
