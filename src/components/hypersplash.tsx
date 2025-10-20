@@ -3,8 +3,16 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useProgress } from "@react-three/drei";
 
 export default function HyperSplash({ active }: { active: boolean }) {
+  const { progress } = useProgress();
+  const [finished, setFinished] = React.useState(false);
 
-  const { progress } = useProgress(); // ← direkt här
+  React.useEffect(() => {
+    if (progress >= 100) {
+      // vänta lite och trigga vit fade
+      const t = setTimeout(() => setFinished(true), 1000);
+      return () => clearTimeout(t);
+    }
+  }, [progress]);
 
   return (
     <AnimatePresence>
@@ -14,35 +22,54 @@ export default function HyperSplash({ active }: { active: boolean }) {
           className="fixed inset-0 z-[9999] bg-black flex items-center justify-center overflow-hidden"
           initial={{ opacity: 1 }}
           animate={{ opacity: 1 }}
-          exit={{ opacity: 0, scale: 1.05 }} // zooma lite ut samtidigt som den tonar bort
-          transition={{ duration: 2, ease: "easeInOut" }}
+          exit={{ opacity: 0 }}
         >
-          <Starfield />
+          {/* Stjärnfältet */}
+          <Starfield speed={finished ? 150 : 40} />
 
-          {/* Progressbar */}
-          <div className="absolute top-0 left-0 w-full h-[3px] bg-black/70">
+          {/* Glow i mitten */}
           <motion.div
-              className="h-full"
-              initial={{ width: "0%" }}
-              animate={{ width: `${progress}%` }}
-              transition={{ duration: 3, ease: "easeInOut" }}
-              style={{
-              background: "linear-gradient(90deg, #9B5DE5, #F15BB5)", 
-              boxShadow: `
-                  0 0 8px #9B5DE5,
-                  0 0 16px #F15BB5,
-                  0 0 24px #9B5DE5
-              `,
-              }}
+            className="absolute rounded-full"
+            initial={{ width: 200, height: 200, opacity: 0.6 }}
+            animate={{
+              width: finished ? "300vw" : 400,
+              height: finished ? "300vw" : 400,
+              opacity: finished ? 1 : 0.8,
+            }}
+            transition={{ duration: finished ? 2 : 1.5, ease: "easeInOut" }}
+            style={{
+              background:
+                "radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,0.6) 50%, rgba(0,0,0,0) 100%)",
+              filter: "blur(60px)",
+            }}
           />
-          </div>
+
+          {/* Progressbar högst upp */}
+          {!finished && (
+            <div className="absolute top-0 left-0 w-full h-[3px] bg-black/70">
+              <motion.div
+                className="h-full"
+                initial={{ width: "0%" }}
+                animate={{ width: `${progress}%` }}
+                transition={{ duration: 1.5, ease: "easeInOut" }}
+                style={{
+                  background: "linear-gradient(90deg, #9B5DE5, #F15BB5)",
+                  boxShadow: `
+                      0 0 8px #9B5DE5,
+                      0 0 16px #F15BB5,
+                      0 0 24px #9B5DE5
+                  `,
+                }}
+              />
+            </div>
+          )}
         </motion.div>
       )}
     </AnimatePresence>
   );
 }
 
-function Starfield() {
+function Starfield({ speed = 10 }: { speed?: number }) {
   const canvasRef = React.useRef<HTMLCanvasElement>(null);
 
   React.useEffect(() => {
@@ -53,7 +80,7 @@ function Starfield() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
-    const stars = Array.from({ length: 1000 }).map(() => ({
+    const stars = Array.from({ length: 1500 }).map(() => ({
       x: (Math.random() - 0.5) * canvas.width,
       y: (Math.random() - 0.5) * canvas.height,
       z: Math.random() * canvas.width,
@@ -67,7 +94,7 @@ function Starfield() {
 
       for (let star of stars) {
         star.prevZ = star.z;
-        star.z -= 50;
+        star.z -= speed;
 
         if (star.z <= 0) {
           star.x = (Math.random() - 0.5) * canvas.width;
@@ -99,7 +126,7 @@ function Starfield() {
 
     draw();
     return () => cancelAnimationFrame(animationFrame);
-  }, []);
+  }, [speed]);
 
   return <canvas ref={canvasRef} className="w-full h-full" />;
 }

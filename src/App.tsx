@@ -6,14 +6,16 @@ import { Menu } from './pages/Menu'
 import { Gallery } from './pages/Gallery'
 import { Header } from './components/Header'
 import { useState } from 'react'
-import HyperSplash from './components/hypersplash'
+import { StarRain } from './components/testloading'
+// import HyperSplash from './components/hypersplash'
 
 function App() {
   const [dataLoaded, setDataLoaded] = useState(false);
 
   return (
     <Router>
-      <HyperSplash active={!dataLoaded} />
+      {/* <HyperSplash active={!dataLoaded} /> */}
+      <StarRain active={!dataLoaded} />
       <div className="min-h-screen bg-background">
         <Header />
         <Routes>

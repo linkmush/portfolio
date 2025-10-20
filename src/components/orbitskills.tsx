@@ -2,7 +2,7 @@ import { useRef, useLayoutEffect, useEffect, useState } from "react";
 import { motion, useAnimation, useInView } from "framer-motion";
 import {
   SiFigma, SiReact, SiNodedotjs, SiJavascript, SiCss3, SiNextdotjs,
-  SiAdobeillustrator, SiAdobexd, SiMongodb, SiExpress, SiDotnet,
+  SiAdobeillustrator, SiMongodb, SiExpress, SiDotnet,
   SiTypescript, SiTailwindcss, SiSqlite, SiDocker, SiBootstrap, SiMysql,
 } from "react-icons/si";
 import { FaLinkedin, FaGithub, FaDatabase, FaCode } from "react-icons/fa";
@@ -21,7 +21,7 @@ const mainSkills = [
   { icon: <TbBrandCSharp className="text-2xl text-[#239120]" />, name: "C#" },
   { icon: <SiJavascript className="text-2xl text-[#F7DF1E]" />, name: "JavaScript" },
   { icon: <SiTypescript className="text-2xl text-[#3178C6]" />, name: "TypeScript" },
-  { icon: <TbBrandPowershell className="text-2xl text-[#5391FE]" />, name: "PowerShell" },
+  // { icon: <TbBrandPowershell className="text-2xl text-[#5391FE]" />, name: "PowerShell" },
   { icon: <DiVisualstudio className="text-2xl text-[#5C2D91]" />, name: "Visual Studio" },
   { icon: <BiLogoVisualStudio className="text-2xl text-[#0da1f7]" />, name: "Visual Studio" },
   { icon: <FaDatabase className="text-2xl text-[#4DB33D]" />, name: "Database" },
@@ -43,7 +43,7 @@ const orbitRings = [
     { icon: <SiNextdotjs />, color: "text-white" },
     { icon: <SiDotnet />, color: "text-[#5185f5]" },
     { icon: <SiExpress />, color: "text-gray-200" },
-    { icon: <SiAdobexd />, color: "text-pink-500" },
+    { icon: <TbBrandPowershell />, color: "text-blue-500" },
   ],
   [
     { icon: <SiFigma />, color: "text-pink-400" },
@@ -192,7 +192,7 @@ export default function OrbitSkills() {
       </div>
 
       {/* Lines */}
-      <svg ref={svgRef} className="absolute inset-0 w-full h-full pointer-events-none z-0">
+      {/* <svg ref={svgRef} className="absolute inset-0 w-full h-full pointer-events-none z-0">
         {lines.map((line, i) => (
           <motion.line
             key={i}
@@ -208,7 +208,40 @@ export default function OrbitSkills() {
             transition={{ duration: 1.5, delay: 0.4 + i * 0.1 }}
           />
         ))}
-      </svg>
+      </svg> */}
+      <svg ref={svgRef} className="absolute inset-0 w-full h-full pointer-events-none z-0">
+  {lines.map((line, i) => {
+    // mitten mellan start och slut
+    const mx = (line.x1 + line.x2) / 2;
+    const my = (line.y1 + line.y2) / 2 - 80; // justera för att få “båge neråt”
+
+    const d = `M ${line.x1},${line.y1} Q ${mx},${my} ${line.x2},${line.y2}`;
+
+    return (
+      <motion.path
+        key={i}
+        d={d}
+        stroke="url(#gradientStroke)"
+        strokeWidth="2"
+        fill="none"
+        initial={{ pathLength: 0, opacity: 0 }}
+        animate={isInView ? { pathLength: 1, opacity: 1 } : {}}
+        transition={{ duration: 1.5, delay: 0.4 + i * 0.1 }}
+        strokeLinecap="round"
+      />
+    );
+  })}
+
+  {/* Gradient stroke */}
+  <defs>
+    <linearGradient id="gradientStroke" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#9B5DE5" stopOpacity="0.7" />
+      <stop offset="100%" stopColor="#F15BB5" stopOpacity="0.9" />
+    </linearGradient>
+  </defs>
+</svg>
+
+
 
       {/* Orb + rings + icons */}
       <div className="relative flex items-center justify-center flex-col mt-15" style={{ perspective: "1200px" }}>
