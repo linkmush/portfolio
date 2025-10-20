@@ -159,24 +159,6 @@ export const StarRain = ({ active }: { active: boolean }) => {
           strokeOpacity="0.15"
         />
 
-      {/* Glowande pulserande linje (synkad med dash) */}
-      <motion.path
-        d="M20,50 C20,20 80,20 100,50 C120,80 180,80 180,50 C180,20 120,20 100,50 C80,80 20,80 20,50 Z"
-        stroke="url(#grad1)"
-        strokeWidth="8"
-        strokeOpacity="0.6"
-        style={{ filter: "blur(8px)" }}
-        animate={{
-          opacity: [0.4, 0.9, 0.4],     // boom varje cykel
-          scale: [1, 1.25, 1],          // extra stark puls
-        }}
-        transition={{
-          duration: 2,                  // samma som dash
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-      />
-
       {/* Glowande rörlig linje (dash) */}
       <motion.path
         d="M20,50 C20,20 80,20 100,50 C120,80 180,80 180,50 C180,20 120,20 100,50 C80,80 20,80 20,50 Z"
