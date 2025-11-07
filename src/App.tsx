@@ -6,27 +6,32 @@ import { Menu } from './pages/Menu'
 import { Gallery } from './pages/Gallery'
 import { Header } from './components/Header'
 import { useState } from 'react'
-import { StarRain } from './components/testloading'
-// import HyperSplash from './components/hypersplash'
+import { StarRain } from './components/starloading'
+import { DotNavigation } from './components/dotnavigation'
 
 function App() {
-  const [dataLoaded, setDataLoaded] = useState(false);
+  const [dataLoaded, setDataLoaded] = useState(false)
 
   return (
     <Router>
-      {/* <HyperSplash active={!dataLoaded} /> */}
       <StarRain active={!dataLoaded} />
-      <div className="min-h-screen bg-background">
-        <Header />
-        <Routes>
-          <Route path="/" element={<Home onLoaded={() => setDataLoaded(true)} />} />
-          <Route path="/menu" element={<Menu />} />
-          <Route path="/gallery" element={<Gallery />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
-      </div>
+
+      <DotNavigation>
+        <div className="bg-background">
+          <Header />
+
+          <main>
+            <Routes>
+              <Route path="/" element={<Home onLoaded={() => setDataLoaded(true)} />} />
+              <Route path="/menu" element={<Menu />} />
+              <Route path="/gallery" element={<Gallery />} />
+              <Route path="/contact" element={<Contact />} />
+            </Routes>
+          </main>
+        </div>
+      </DotNavigation>
     </Router>
-  );
+  )
 }
 
 export default App

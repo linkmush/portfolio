@@ -41,11 +41,18 @@ export const WorkExperience: FC = () => {
           {experiences.map((exp, index) => (
             <motion.div
               key={index}
+              initial={{ opacity: 0, x: index % 2 === 0 ? -80 : 80 }}
+              whileInView={{ opacity: 1, x: 0 }}  // slidar in till center
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{
+                duration: 0.6,
+                ease: "easeOut",
+              }}
               whileHover={{ scale: 1.05 }}
               className="rounded-xl p-6 
-                         bg-gradient-to-br from-[#1a0033] via-[#2a004d] to-[#3a0066] 
-                         shadow-lg border border-[#9B5DE5]/30
-                         hover:shadow-[0_0_20px_#9B5DE5]"
+                        bg-gradient-to-br from-[#1a0033] via-[#2a004d] to-[#3a0066] 
+                        shadow-lg border border-[#9B5DE5]/30
+                        hover:shadow-[0_0_20px_#9B5DE5]"
             >
               <div className="flex items-center gap-4 mb-4">
                 {exp.icon}
