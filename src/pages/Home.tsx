@@ -1,21 +1,28 @@
-import { HeroSection } from "@/components/hero-section";
+import BackgroundScene from "@/components/backgroundscene";
+import { SectionCard } from "@/components/sectioncard";
 import OrbitSkills from "@/components/orbitskills";
 import { WorkExperience } from "@/components/workexperience";
+import { HeroContent } from "@/components/hero-section";
 
 export const Home = ({ onLoaded }: { onLoaded: () => void }) => {
   return (
     <>
-      <section id="heroSection" className="h-screen snap-start">
-        <HeroSection onLoaded={onLoaded} />
+      <BackgroundScene onLoaded={onLoaded} />
+
+      <section id="heroSection" className="relative w-full h-screen snap-start pointer-events-auto">
+        <HeroContent />
       </section>
 
-      <section id="experienceSection" className="h-screen snap-start">
-        <WorkExperience />
-      </section>
+      {/* cards */}
+      <main className="relative z-10 snap-y snap-mandatory pointer-events-auto">
+        <SectionCard id="experienceSection" className="snap-start" widthClass="max-w-[1100px]">
+          <WorkExperience />
+        </SectionCard>
 
-      <section id="skills" className="h-screen snap-start bg-black text-white">
-        <OrbitSkills />
-      </section>
+        <SectionCard id="skills" widthClass="max-w-[1100px]">
+          <OrbitSkills />
+        </SectionCard>
+      </main>
     </>
-  )
-}
+  );
+};

@@ -82,7 +82,7 @@ export const DotNavigation = ({ children }: { children: React.ReactNode }) => {
   }
 
   return (
-    <div className="app-scroll relative w-full overflow-hidden" style={{ height: "100vh" }}>
+    <div className="app-scroll relative w-full overflow-hidden pointer-events-auto" style={{ height: "100vh" }}>
       <div
         ref={scrollerRef}
         className="h-full w-full overflow-y-scroll scrollbar-hide"
@@ -92,7 +92,7 @@ export const DotNavigation = ({ children }: { children: React.ReactNode }) => {
 
       {/* DOT RAIL RIGHT */}
       <div
-        className="pointer-events-auto absolute top-1/2 -translate-y-1/2 hidden sm:block mr-3"
+        className="pointer-events-auto absolute top-1/2 -translate-y-1/2 hidden sm:block mr-3 z-[1000]"
         style={{ right: railOffset }}
       >
         <div

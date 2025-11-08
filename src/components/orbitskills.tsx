@@ -1,3 +1,4 @@
+// OrbitSkills.tsx
 import { useRef, useLayoutEffect, useEffect, useState } from "react";
 import { motion, useAnimation, useInView } from "framer-motion";
 import {
@@ -13,8 +14,9 @@ import { TbBrandCSharp, TbBrandPowershell } from "react-icons/tb";
 
 type Line = { x1: number; y1: number; x2: number; y2: number; mergeX: number; mergeY: number };
 
-const TILT = 65;
+const TILT = 70;
 
+// —————————— DATA ——————————
 const mainSkills = [
   { icon: <TbBrandCSharp className="text-2xl text-[#239120]" />, name: "C#" },
   { icon: <SiJavascript className="text-2xl text-[#F7DF1E]" />, name: "JavaScript" },
@@ -55,12 +57,8 @@ const orbitRings = [
   ],
 ];
 
-const rings = [
-  { w: 400, h: 400 },
-  { w: 600, h: 600 },
-  { w: 800, h: 800 },
-  { w: 1000, h: 1000 },
-];
+// procent av containerbredd som bas, justerat nedåt på små skärmar via clamp
+const RING_FACTORS = [0.38, 0.55, 0.72, 0.88] as const; // inner → outer
 
 export default function OrbitSkills() {
   const sectionRef = useRef<HTMLElement | null>(null);
@@ -68,6 +66,8 @@ export default function OrbitSkills() {
   const orbRef = useRef<HTMLDivElement | null>(null);
   const iconRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [lines, setLines] = useState<Line[]>([]);
+  const [ringSizes, setRingSizes] = useState<number[]>([0, 0, 0, 0]); // px
+  const [orbSize, setOrbSize] = useState(120);
 
   const isInView = useInView(sectionRef, { once: true, margin: "-20% 0px -20% 0px" });
   const ringControls = useAnimation();
@@ -75,14 +75,34 @@ export default function OrbitSkills() {
 
   iconRefs.current = Array(mainSkills.length).fill(null).map((_, i) => iconRefs.current[i] || null);
 
-  // *** FIXED LINE LOGIC ***
+  // —————————— RING SIZE CALC ——————————
+  const calcRingSizes = () => {
+    if (!sectionRef.current) return;
+    const rect = sectionRef.current.getBoundingClientRect();
+
+    // Gör ringarna alltid "in view":
+    // Bas = min(containerWidth, containerHeight*1.2) så vi tar hänsyn till höjden.
+    const base = Math.min(rect.width, rect.height * 1.2);
+
+    // Liten padding från kanter (20–32px beroende på bredd)
+    const pad = Math.max(20, Math.min(32, rect.width * 0.03));
+    const maxDiameter = Math.max(160, base - pad * 2); // hård lägsta så det aldrig blir 0
+
+    const sizes = RING_FACTORS.map(f => Math.round(maxDiameter * f));
+    setRingSizes(sizes);
+    setOrbSize(Math.round(sizes[0] * 0.35));
+  };
+
+  // —————————— FUNNEL LINES ——————————
   const computeLines = () => {
     if (!sectionRef.current || !orbRef.current) return;
+
     const secRect = sectionRef.current.getBoundingClientRect();
     const orbRect = orbRef.current.getBoundingClientRect();
 
     const orbCx = orbRect.left - secRect.left + orbRect.width / 2;
     const orbCy = orbRect.top - secRect.top + orbRect.height / 2;
+    const orbRadius = orbRect.width / 2;
 
     const centers = iconRefs.current
       .filter(Boolean)
@@ -94,16 +114,17 @@ export default function OrbitSkills() {
         };
       });
 
+    if (!centers.length) return;
+
     const iconLowestY = Math.max(...centers.map((p) => p.cy));
-    const mergeY = iconLowestY + 30; // funnel sits ~30 px under mainIcons
+    const mergeY = iconLowestY + 30;
     const mergeX = orbCx;
-    const orbRadius = orbRect.width / 2;
 
     const newLines = centers.map((p) => ({
       x1: p.cx,
-      y1: p.cy + (-24), // din fix för main bubble
+      y1: p.cy - 24,
       x2: orbCx,
-      y2: orbCy - orbRadius + 10,  // <<<<<< sluta ca 10px ovanför orb ytan
+      y2: orbCy - orbRadius + 10,
       mergeX,
       mergeY,
     }));
@@ -111,64 +132,94 @@ export default function OrbitSkills() {
     setLines(newLines);
   };
 
+  // —————————— EFFECTS ——————————
   useLayoutEffect(() => {
     if (!isInView) return;
+    calcRingSizes();
     computeLines();
-    const id = requestAnimationFrame(() => computeLines());
+    const id = requestAnimationFrame(() => {
+      calcRingSizes();
+      computeLines();
+    });
     return () => cancelAnimationFrame(id);
   }, [isInView]);
 
   useEffect(() => {
     if (!isInView) return;
-    const ro = new ResizeObserver(() => computeLines());
+
+    const ro = new ResizeObserver(() => {
+      calcRingSizes();
+      computeLines();
+    });
     if (sectionRef.current) ro.observe(sectionRef.current);
     if (orbRef.current) ro.observe(orbRef.current);
     iconRefs.current.forEach((el) => el && ro.observe(el));
-    window.addEventListener("scroll", computeLines, { passive: true });
-    window.addEventListener("resize", computeLines);
+
+    const onScroll = () => computeLines();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", () => {
+      calcRingSizes();
+      computeLines();
+    });
+
     return () => {
       ro.disconnect();
-      window.removeEventListener("scroll", computeLines);
-      window.removeEventListener("resize", computeLines);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", () => {});
     };
   }, [isInView]);
-
+  
   useEffect(() => {
     if (!isInView) return;
+
     (async () => {
+      // 1) vänta tills mainskills ikoner är uppe
+      await new Promise(res => setTimeout(res, 900));
+
+      // 2) vänta tills lines har ritat klart
+      await new Promise(res => setTimeout(res, 900));
+
+      // 3) ringar skjuter ut
       await ringControls.start(i => ({
         scale: 1,
         opacity: 1,
-        transition: { duration: 1, delay: 0.5 + i * 0.3 },
+        transition: { duration: 1, delay: i * 0.15 }
       }));
-      iconControls.start({
+
+      // 4) orbit ikoner fadeas in
+      await iconControls.start({
         opacity: 1,
         scale: 1,
-        transition: { duration: 0.6 },
+        transition: { duration: 0.7 }
       });
     })();
-  }, [isInView, ringControls, iconControls]);
 
+  }, [isInView]);
+
+
+  // —————————— RENDER ——————————
   return (
-    <section
+    <div
       ref={sectionRef as any}
-      id="skills"
-      className="relative h-screen flex flex-col items-center justify-start text-center text-white bg-[#0a0015] overflow-hidden pt-12 pb-32"
+      className="
+        relative w-full flex flex-col items-center text-center text-white overflow-hidden
+        min-h-[560px] md:min-h-[640px]  /* ger yta så ringar syns även på mobil */
+      "
     >
       {/* text */}
-      <h2 className="text-2xl md:text-4xl font-bold tracking-wide mt-10 
-        bg-gradient-to-r from-purple-400 via-fuchsia-500 to-indigo-400 
-        bg-clip-text text-transparent drop-shadow-[0_0_20px_rgba(167,139,250,0.25)]">
+      <h2 className="text-2xl md:text-4xl font-bold tracking-wide
+        bg-gradient-to-r from-purple-400 via-fuchsia-500 to-indigo-400
+        bg-clip-text text-transparent drop-shadow-[0_0_20px_rgba(167,139,250,0.25)] mt-5">
         My core skills and the ecosystem I build with
       </h2>
-      <p className="mt-3 text-base md:text-lg text-white/60 leading-relaxed max-w-2xl mx-auto mb-10">
-        Core stack: C#, JavaScript, TypeScript, databases and modern tooling.
-        <br />
+
+      <p className="text-base md:text-lg text-white/60 leading-relaxed max-w-2xl mx-auto mt-5">
+        Core stack: C#, JavaScript, TypeScript, databases and modern tooling.<br />
         Everything around it is the ecosystem I use to build fullstack solutions.
       </p>
 
       {/* main skills row */}
-      <div className="flex items-center justify-center gap-6 mb-20 relative z-30" style={{ transform: "none" }}>
+      <div className="flex items-center justify-center gap-6 mb-16 md:mb-20 relative z-[75] mt-15" style={{ transform: "none" }}>
         {mainSkills.map((skill, i) => (
           <motion.div
             key={i}
@@ -177,76 +228,64 @@ export default function OrbitSkills() {
             title={skill.name}
             initial={{ opacity: 0, y: 30, boxShadow: "none" }}
             animate={isInView ? { opacity: 1, y: 0, boxShadow: "0 0 20px rgba(168,85,247,0.6)" } : {}}
-            transition={{ duration: 0.8, delay: 0.2 + i * 0.1 }}
+            transition={{ duration: 0.8, delay: 0.2 + i * 0.08 }}
           >
             {skill.icon}
           </motion.div>
         ))}
       </div>
 
-      {/* funnel lines */}
-      <svg ref={svgRef} className="absolute inset-0 w-full h-full pointer-events-none z-0">
+      {/* funnel lines (läggs under ringar men över bakgrund) */}
+      <svg ref={svgRef} className="absolute inset-0 w-full h-full pointer-events-none z-[50]">
         {lines.map((line, i) => {
-          const d = `M ${line.x1},${line.y1}
-                     Q ${line.mergeX},${line.mergeY}
-                     ${line.x2},${line.y2}`;
-
+          const d = `M ${line.x1},${line.y1} Q ${line.mergeX},${line.mergeY} ${line.x2},${line.y2}`;
           return (
             <motion.path
               key={i}
               d={d}
-              stroke="rgba(155,93,229,0.65)"
+              stroke="rgba(155,93,229,0.75)"
               strokeWidth="2"
               fill="none"
               initial={{ pathLength: 0, opacity: 0 }}
               animate={isInView ? { pathLength: 1, opacity: 1 } : {}}
-              transition={{ duration: 1.5, delay: 0.4 + i * 0.1 }}
+              transition={{ duration: 1.3, delay: 0.35 + i * 0.06 }}
               strokeLinecap="round"
-              style={{ filter:"drop-shadow(0 0 8px rgba(155,93,229,0.7))" }}
+              style={{ filter: "drop-shadow(0 0 8px rgba(155,93,229,0.8))" }}
             />
           );
         })}
-
-        <defs>
-          <linearGradient id="gradientStroke" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#9B5DE5" stopOpacity="0.7" />
-            <stop offset="100%" stopColor="#F15BB5" stopOpacity="0.9" />
-          </linearGradient>
-        </defs>
       </svg>
 
       {/* orbit system */}
-      <div className="relative flex items-center justify-center flex-col mt-15" style={{ perspective: "1200px" }}>
+      <div className="relative flex items-center justify-center flex-col mt-10" style={{ perspective: "1200px" }}>
         <div
-          className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none"
+          className="absolute inset-0 flex items-center justify-center z-[60] pointer-events-none"
           style={{ transform: `rotateX(${TILT}deg)`, transformStyle: "preserve-3d", willChange: "transform" }}
         >
-          {rings.map((r, i) => (
+          {/* rings */}
+          {ringSizes.map((size, i) => (
             <motion.div
               key={`ring-${i}`}
-              custom={i}
-              initial={{ scale: 0, opacity: 0 }}
+              initial={{ scale: 0.9, opacity: 0 }}
               animate={ringControls}
-              className="absolute rounded-full"
+              className="absolute rounded-full z-[60]"
               style={{
-                width: `${r.w}px`,
-                height: `${r.h}px`,
-                border: "2px solid rgba(155,93,229,0.6)",
+                width: `${size}px`,
+                height: `${size}px`,
+                border: "2px solid rgba(155,93,229,0.7)",
+                boxShadow: "0 0 18px rgba(155,93,229,0.25) inset",
                 transformOrigin: "50% 50%",
               }}
             />
           ))}
 
+          {/* ring icons – följer ringarnas radie */}
           {orbitRings.flatMap((ringIcons, ringIndex) => {
-            const ring = rings[ringIndex];
-            const radius = ring.w / 2;
+            const radius = ringSizes[ringIndex] / 2 || 0;
 
             return ringIcons.map((item, i) => {
               let angle = (360 / ringIcons.length) * i;
-                // --- flytta PowerShell ikonen
-                if(ringIndex === 2 && i === 3) {
-                  angle += 12; // test värde
-                }
+              if (ringIndex === 2 && i === 3) angle += 12; // din specialplacering
 
               const rad = (angle * Math.PI) / 180;
               const x = Math.cos(rad) * radius;
@@ -255,9 +294,9 @@ export default function OrbitSkills() {
               return (
                 <motion.div
                   key={`${ringIndex}-${i}`}
-                  initial={{ opacity: 0, scale: 0.8 }}
+                  initial={{ opacity: 0, scale: 0.85 }}
                   animate={iconControls}
-                  className="absolute"
+                  className="absolute z-[70]"
                   style={{
                     x, y,
                     rotateX: -TILT,
@@ -266,7 +305,7 @@ export default function OrbitSkills() {
                     willChange: "transform, opacity",
                   }}
                 >
-                  <div className={`${item.color} text-2xl drop-shadow-[0_0_12px_rgba(168,85,247,0.45)]`}>
+                  <div className={`${item.color} text-[22px] md:text-2xl drop-shadow-[0_0_12px_rgba(168,85,247,0.45)]`}>
                     {item.icon}
                   </div>
                 </motion.div>
@@ -275,27 +314,29 @@ export default function OrbitSkills() {
           })}
         </div>
 
-        {/* orb */}
+        {/* orb (alltid överst) */}
         <motion.div
           ref={orbRef}
-          className="relative z-20 w-48 h-48 rounded-full flex items-center justify-center text-6xl font-bold"
+          className="relative z-[80] rounded-full flex items-center justify-center font-bold"
           style={{
+            width: orbSize + "px",
+            height: orbSize + "px",
+            fontSize: orbSize * 0.3 + "px",
             background: "radial-gradient(circle, #fff59d 0%, #fbbf24 40%, #f97316 80%, #1a1a2e 100%)",
             color: "#fff",
           }}
           animate={{
             boxShadow: [
-              "0 0 100px 30px rgba(251,191,36,0.6)",
-              "0 0 160px 50px rgba(249,115,22,0.8)",
-              "0 0 100px 30px rgba(251,191,36,0.6)",
+              "0 0 80px 24px rgba(251,191,36,0.55)",
+              "0 0 140px 40px rgba(249,115,22,0.75)",
+              "0 0 80px 24px rgba(251,191,36,0.55)",
             ],
           }}
           transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
         >
           Σ
         </motion.div>
-
       </div>
-    </section>
+    </div>
   );
 }

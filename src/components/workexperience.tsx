@@ -20,13 +20,7 @@ export const WorkExperience: FC = () => {
   const { t } = useTranslation();
 
   return (
-    <section
-      id="experienceSection"
-      className="relative w-full h-screen flex items-center justify-center 
-                 bg-gradient-to-b from-[#0b0018] via-[#15002a] to-[#1a0033] 
-                 text-white snap-start"
-    >
-      <div className="max-w-6xl mx-auto px-6">
+    <>
         {/* Titel */}
         <h2
           className="text-4xl font-semibold mb-12 text-center 
@@ -125,7 +119,6 @@ export const WorkExperience: FC = () => {
             </motion.div>
           ))}
         </div>
-      </div>
-    </section>
+    </>
   );
 };
