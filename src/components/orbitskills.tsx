@@ -202,10 +202,19 @@ export default function OrbitSkills() {
     <div
       ref={sectionRef as any}
       className="
-        relative w-full flex flex-col items-center text-center text-white overflow-hidden
-        min-h-[560px] md:min-h-[640px]  /* ger yta så ringar syns även på mobil */
+        relative w-full flex flex-col items-center text-center md:justify-center text-white overflow-hidden
+        min-h-[560px] md:min-h-[900px] lg:min-h-[1000px]  /* ger yta så ringar syns även på mobil */
       "
     >
+
+    <div 
+      className="
+        absolute inset-0 
+        backdrop-blur-sm
+        bg-black/10
+        pointer-events-none
+      " 
+    />
       {/* text */}
       <h2 className="text-2xl md:text-4xl font-bold tracking-wide
         bg-gradient-to-r from-purple-400 via-fuchsia-500 to-indigo-400
@@ -213,7 +222,7 @@ export default function OrbitSkills() {
         My core skills and the ecosystem I build with
       </h2>
 
-      <p className="text-base md:text-lg text-white/60 leading-relaxed max-w-2xl mx-auto mt-5">
+      <p className="text-base md:text-lg text-white/60 leading-relaxed max-w-2xl mx-auto mt-5 z-1">
         Core stack: C#, JavaScript, TypeScript, databases and modern tooling.<br />
         Everything around it is the ecosystem I use to build fullstack solutions.
       </p>

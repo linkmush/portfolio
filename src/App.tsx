@@ -15,14 +15,14 @@ function App() {
   return (
     <Router>
       <StarRain active={!dataLoaded} />
-      <DotNavigation>
-          <Header />
-            <Routes>
-              <Route path="/" element={<Home onLoaded={() => setDataLoaded(true)} />} />
-              <Route path="/menu" element={<Menu />} />
-              <Route path="/gallery" element={<Gallery />} />
-              <Route path="/contact" element={<Contact />} />
-            </Routes>
+      <DotNavigation dots={3}>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home onLoaded={() => setDataLoaded(true)} />} />
+          <Route path="/menu" element={<Menu />} />
+          <Route path="/gallery" element={<Gallery />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
       </DotNavigation>
     </Router>
   )

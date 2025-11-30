@@ -15,22 +15,6 @@ export const supportedLngs: {
 
 const fallbackLng = 'sv';
 
-// function detectInitialLng(): string {
-//   try {
-//     const stored = localStorage.getItem('i18nextLng');
-//     const browser =
-//       typeof navigator !== 'undefined'
-//         ? navigator.language?.split('-')[0]
-//         : undefined;
-//     const candidate = (stored || browser || fallbackLng).toLowerCase();
-//     return Object.keys(supportedLngs).includes(candidate)
-//       ? candidate
-//       : fallbackLng;
-//   } catch {
-//     return fallbackLng;
-//   }
-// }
-
 i18next.use(initReactI18next).init({
   resources: {
     en: { translation: enTranslation },

@@ -1,38 +1,3 @@
-// // SectionCard.tsx
-// import type { ReactNode } from "react";
-
-// export const SectionCard = ({
-//   id,
-//   children,
-//   className = "",
-//   widthClass = "w-[90vw] max-w-[1600px]",
-// }: {
-//   id?: string;
-//   children: ReactNode;
-//   className?: string;
-//   widthClass?: string;
-// }) => {
-//   return (
-//     <section
-//       id={id}
-//       className={`relative w-full h-screen snap-start flex items-center justify-center ${className}`}
-//     >
-//       <div className={`mx-auto ${widthClass} px-6`}>
-//         <div
-//           className="
-//             rounded-3xl border border-white/15 bg-black/10 backdrop-blur-xl
-//             shadow-[0_10px_50px_-10px_rgba(0,0,0,0.5)] ring-1 ring-black/5
-//             px-8 md:px-12 py-12 md:py-16 w-full
-//           "
-//         >
-//           {children}
-//         </div>
-//       </div>
-//     </section>
-//   );
-// };
-
-"use client"
 import { motion, useScroll, useTransform } from "framer-motion"
 import { useRef, type ReactNode } from "react"
 
