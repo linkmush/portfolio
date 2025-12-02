@@ -166,7 +166,7 @@ export default function ExperiencePage() {
         className="flex gap-6 mt-16"
       >
         <a
-          href="/Oskar-CV.pdf"
+          href="/OSKAR_CV.pdf"
           download
           className="
             inline-flex items-center gap-2 px-6 py-3 rounded-full
