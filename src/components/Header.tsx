@@ -41,8 +41,7 @@ export const Header = () => {
         {/* DESKTOP NAV */}
         <nav className="hidden md:flex ml-auto mr-5 gap-8">
           <NavLink href="/">{t("nav.home")}</NavLink>
-          <NavLink href="/menu">{t("nav.menu")}</NavLink>
-          <NavLink href="/gallery">{t("nav.gallery")}</NavLink>
+          <NavLink href="/aboutme">{t("nav.menu")}</NavLink>
           <NavLink href="/contact">{t("nav.contact")}</NavLink>
         </nav>
 

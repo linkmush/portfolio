@@ -1,20 +1,19 @@
 {
   "nav": {
     "home": "Hem",
-    "menu": "Meny",
+    "menu": "Om mig",
     "gallery": "Galleri",
     "contact": "Kontakt",
     "language": "Språk"
   },
   "hero": {
-    "hello": "Hej! Jag heter",
-    "subtitle": "En systemutvecklare som",
-    "headline": "Bygger digitala lösningar",
-    "headlineLast": "som håller",
-    "tagline": "För att meningsfulla produkter ska vara skalbara, säkra och trevliga att använda.",
-    "desc1": "Med en grund i <strong>.NET</strong> och över <strong>sex år inom IT-support</strong> bygger jag säkra och skalbara digitala lösningar som löser verkliga problem med precision och kreativitet.",
-    "desc2": "Jag fick praktisk erfarenhet som <highlight>Fullstack-utvecklare</highlight>, där jag tog projekt från backend-arkitektur till intuitiva frontend-lösningar. Idag är jag medgrundare till ett <strong>startup AB</strong> som fokuserar på att bygga meningsfulla digitala produkter.",
-    "desc3": "Nu vidareutvecklar jag mig inom <strong>IT-säkerhetsutveckling</strong>, där jag kombinerar utveckling med ett <em>säkerhetsfokuserat tankesätt</em> för att leverera teknik som inte bara är kraftfull utan också motståndskraftig."
+"hello": "Hej! Jag heter", 
+"subtitle": "En systemutvecklare som", 
+"headline": "Bygger digitala lösningar", 
+"headlineLast": "som håller", 
+"desc1": "Med en grund i <strong>.NET</strong> och över <strong>sex år inom IT-support</strong> skapar jag säkra och skalbara digitala lösningar som löser verkliga problem med både precision och kreativitet.", 
+"desc2": "Jag har ett års yrkeserfarenhet som <highlight>fullstackutvecklare</highlight>, där jag arbetat med allt från backendarkitektur till moderna och intuitiva frontendlösningar. Idag är jag medgrundare till ett <strong>startup AB</strong> som fokuserar på att bygga meningsfulla digitala produkter.", 
+"desc3": "Nu vidareutvecklar jag mig inom <strong>IT-säkerhetsutveckling</strong>, där jag kombinerar utveckling med ett <em>säkerhetsfokuserat tankesätt</em> för att skapa teknik som inte bara är kraftfull utan också motståndskraftig."
   },
   "work": {
     "title": "Arbetslivserfarenhet",
@@ -47,5 +46,173 @@
       "description": "Hjälpte kunder med tekniska problem och produktval.",
       "details": "Som butikssäljare assisterade jag kunder med produktval och gav teknisk rådgivning.\nJag använde min tekniska kunskap för att lösa problem och ge rekommendationer, vilket krävde förmågan att förmedla komplex information på ett enkelt sätt."
     }
+  },
+  "skills": {
+    "title": "Mina kärnkompetenser och ekosystemet jag bygger med",
+    "subtitle": "Kärnstack: C#, JavaScript, TypeScript, databaser och moderna verktyg.\nAllt runtomkring är ekosystemet jag använder för att bygga fullstack-lösningar."
+  },
+  "projects": {
+    "Inadra": {
+      "title": "Inadra Business System",
+      "desc": "Fullstackutveckling av ett nytt internt affärssystem i .NET och TypeScript.",
+      "meta": ".NET Core • TypeScript • Tailwind • MSSQL",
+      "details": "Under min tid som fullstackutvecklare på Inadra AB arbetade jag med hela tekniska stacken från databasmodellering och relationshantering till backend i .NET Core Web API och frontend i TypeScript. Jag utvecklade ett nytt affärssystem som ersatte ett äldre internt system, där jag ansvarade för databasen, affärslogik och ett responsivt gränssnitt byggt med Tailwind. Lösningen förbättrade administrationen av företagsinformation, personal och kundrelationer.",
+      "button": "Läs mer",
+      "visit": "Besök hemsidan"
+    },
+    "calendra": {
+      "title": "Calendra Business System",
+      "desc": "Ett komplett affärssystem som samlar bokningar, personal, ekonomi och administration i en plattform.",
+      "meta": "Fullstack • .NET • TypeScript • Designsystem",
+      "details": "Calendra är ett modernt affärssystem som samlar allt ett företag behöver i sin vardag: bokningsplattform, personalhantering, ekonomi, redovisning och administrativa funktioner. Jag har arbetat med arkitektur, UX, designsystem och den tekniska grunden för att skapa en skalbar och modulär plattform som kan anpassas för olika typer av verksamheter.",
+      "button": "Läs mer",
+      "visit": "Besök hemsidan"
+    },
+    "solsidan": {
+      "title": "Solsidan Booking Platform",
+      "desc": "End-to-end bokningssystem för restauranger med bordsupplägg, öppettider och regler.",
+      "meta": "React • TypeScript • Tailwind • .NET API",
+      "details": "Solsidan är en fullstack-baserad bokningsplattform där fokus ligger på tydligt bordsupplägg, regelstyrda bokningar och adminvy. Jag byggde frontend i React/TypeScript med Tailwind och kopplade mot ett .NET API. Lösningen hanterar öppettider, olika sittningar, maxantal gäster och enkla verktyg för personalen att överblicka kvällens bokningar.",
+      "button": "Läs mer",
+      "visit": "Besök hemsidan"
+    },
+    "skonhetscenter": {
+      "title": "Skönhetscenter Website",
+      "desc": "En modern och visuellt tilltalande hemsida framtagen åt en skönhetssalong.",
+      "meta": "React • Vite • Tailwind • Shadcn UI",
+      "details": "Skönhetscenter är en statisk hemsida utvecklad åt kund med fokus på design, tydlig struktur och en modern användarupplevelse. Jag byggde sidan i React/Vite med Tailwind och Shadcn UI och skapade en ren, responsiv layout som fungerar bra på både mobil och desktop.",
+      "button": "Läs mer",
+      "visit": "Besök hemsidan"
+    },
+    "Phonomenal": {
+      "title": "Vietnamese Restaurant Website",
+      "desc": "Modern restauranghemsida med administrativt gränssnitt för att uppdatera tjänster och priser.",
+      "meta": "React • TypeScript • Tailwind • Custom Admin Panel",
+      "details": "En skräddarsydd hemsida utvecklad åt en vietnamesisk restaurang med fokus på tydlig presentation av meny, tjänster och öppettider. Projektet innehåller ett inloggat admin-gränssnitt där restaurangen själv kan uppdatera priser och innehåll.",
+      "button": "Läs mer",
+      "visit": "Besök hemsidan"
+    },
+    "security-lab": {
+      "title": "Security Lab Environment",
+      "desc": "Hyper-V-labb med pfSense, Suricata, Wazuh, Nessus och segmenterad VLAN/DMZ-design.",
+      "meta": "Network security • Blue team • Lab design",
+      "details": "En egenbyggd säkerhetslabbmiljö i Hyper-V med pfSense-brandvägg, Suricata IDS/IPS, Wazuh SIEM och Nessus scanner. Nätverket är segmenterat i LAN, DMZ, gästnät och management. Labben används för att testa både blue team-försvar och red team-attacker.",
+      "button": "Läs mer",
+      "visit": "Besök hemsidan"
+    },
+    "vena-vardshus": {
+      "title": "Vena Värdshus Website",
+      "desc": "Modern och mobilanpassad hemsida för ett värdshus.",
+      "meta": "React • TypeScript • Tailwind",
+      "details": "En komplett hemsida utvecklad åt Vena Värdshus med fokus på tydlig presentation av menyer, öppettider och kontaktinformation. Responsiv och enkel att navigera för besökare.",
+      "button": "Läs mer",
+      "visit": "Besök hemsidan"
+    },
+    "aurora-restaurant": {
+      "title": "Aurora Restaurant Website",
+      "desc": "Visuell restaurangsida med fokus på meny, känsla och varumärkesidentitet.",
+      "meta": "React • TypeScript • Tailwind • UI/UX",
+      "details": "Aurora är en modern restaurangwebb med fokus på atmosfär, meny och visuella element. Jag ansvarade för UI/UX, layout, bilder och ett responsivt gränssnitt.",
+      "button": "Läs mer",
+      "visit": "Besök hemsidan"
+    },
+    "salon-template": {
+      "title": "Hair & Beauty Salon Template",
+      "desc": "En färdig salong-hemsidemall som kan anpassas och säljas till salonger.",
+      "meta": "React • Vite • Tailwind • Component Library",
+      "details": "En professionell mall för salonger med sektioner för tjänster, prislistor, galleri och kontaktformulär. Optimerad för snabb kundanpassning.",
+      "button": "Läs mer",
+      "visit": "Besök hemsidan"
+    },
+    "futureflow-recon": {
+      "title": "FutureFlow Internal Recon",
+      "desc": "Nätverkskartläggning med fokus på host discovery, tjänster och attackytor.",
+      "meta": "Nmap • Enumeration • Security Analysis",
+      "details": "Ett säkerhetsprojekt där jag genomförde intern rekognosering med Nmap för att identifiera aktiva värdar, öppna portar och potentiella attackytor. Resultatet sammanställdes i en riskanalys.",
+      "button": "Läs mer",
+      "visit": "Besök hemsidan"
+    }
+  },
+    "experience": {
+    "stats": {
+      "supportYearsNumber": "6+",
+      "supportYears": "Års IT-support",
+      "devYearsNumber": "1+",
+      "devYears": "Års utveckling",
+      "projectsNumber": "10+",
+      "projects": "Projekt byggda",
+      "erpNumber": "4",
+      "erp": "Affärssystem byggda"
+    },
+
+    "education": {
+      "title": "Utbildning",
+      "itsec": {
+        "title": "IT-Säkerhetsutvecklare",
+        "subtitle": "Pågående utbildning"
+      },
+      "dotnet": {
+        "title": ".NET Webbutveckling Fullstack",
+        "subtitle": "Examinerad 31 maj 2025"
+      },
+      "aiSweden": {
+        "title": "AI Sweden Diplom",
+        "subtitle": "Fördjupning inom AI & praktiska tillämpningar"
+      }
+    },
+
+    "work": {
+      "title": "Arbetslivserfarenhet",
+
+      "inadra": {
+        "title": "Fullstackutvecklare",
+        "subtitle": "Inadra AB",
+        "date": "18 nov – 31 maj"
+      },
+
+      "webbdesign": {
+        "title": "Fullstackutvecklare",
+        "subtitle": "WebbEkonomi & WebbDesign AB",
+        "date": "2 juni – pågående"
+      }
+    },
+
+    "buttons": {
+      "downloadCV": "Ladda ner CV",
+      "contact": "Kontakta mig"
+    }
+  },
+    "contact": {
+    "title": "Kontakt",
+    "subtitle": "Skicka ett meddelande så återkommer jag så snart som möjligt.",
+    "form_title": "Skicka ett meddelande",
+    "form_description": "Jag återkommer så fort jag kan.",
+
+    "name": "Namn",
+    "email": "E-post",
+    "phone": "Telefon",
+    "message": "Meddelande",
+
+    "send": "Skicka meddelande",
+    "sending": "Skickar...",
+
+    "success_title": "Meddelandet har skickats ✨",
+    "success_message": "Tack! Jag återkommer så snart som möjligt.",
+    "close": "Stäng",
+
+    "errors": {
+      "name": "Ange ditt namn.",
+      "email": "Ange en giltig e-postadress.",
+      "phone": "Ange ditt telefonnummer.",
+      "message": "Skriv ett meddelande (minst 10 tecken)."
+    }
+  },
+  "about": {
+    "title": "Om mig",
+    "p1": "Jag heter Oskar Lindqvist och är en lösningsorienterad .NET-utvecklare med erfarenhet som fullstackutvecklare och examen inom .NET-webbutveckling. Jag arbetar med hela stacken från databasdesign och backendarkitektur till moderna och intuitiva frontendlösningar.",
+    "p2": "Jag är metodisk, snabb och kvalitetsdriven. I mitt dagliga arbete använder jag avancerade AI-verktyg som ChatGPT för att accelerera utveckling, optimera lösningar och säkerställa hög kvalitet.",
+    "p3": "Utöver utveckling har jag över sex års erfarenhet inom IT bland annat från IT-support i Bangkok. Det har gett mig bred teknisk kompetens, problemlösningsförmåga och vana att arbeta i team.",
+    "p4": "Jag söker en arbetsplats där utveckling, kvalitet och teamkänsla är centrala. Jag är övertygad om att jag kan bidra positivt till ert team.",
+    "cta": "Kontakta mig →"
   }
 }

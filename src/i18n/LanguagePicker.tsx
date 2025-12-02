@@ -100,7 +100,7 @@ const triggerBase =
   'text-[#9B5DE5] transition duration-300 ' +
   'hover:text-[#F15BB5] drop-shadow-[0_0_6px_#9B5DE5] ' +
   'bg-transparent border-0 focus:outline-none focus:ring-0 focus:ring-offset-0 ' +
-  'data-[state=open]:text-[#F15BB5]';
+  'data-[state=open]:text-[#F15BB5] cursor-pointer';
 
   const currentLabel = label ?? langs[current]?.name ?? current.toUpperCase();
 

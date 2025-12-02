@@ -11,6 +11,7 @@ import { VscAzure, VscAzureDevops } from "react-icons/vsc";
 import { BiLogoVisualStudio } from "react-icons/bi";
 import { DiVisualstudio } from "react-icons/di";
 import { TbBrandCSharp, TbBrandPowershell } from "react-icons/tb";
+import { useTranslation } from "react-i18next";
 
 type Line = { x1: number; y1: number; x2: number; y2: number; mergeX: number; mergeY: number };
 
@@ -61,6 +62,7 @@ const orbitRings = [
 const RING_FACTORS = [0.38, 0.55, 0.72, 0.88] as const; // inner → outer
 
 export default function OrbitSkills() {
+  const { t } = useTranslation();
   const sectionRef = useRef<HTMLElement | null>(null);
   const svgRef = useRef<SVGSVGElement | null>(null);
   const orbRef = useRef<HTMLDivElement | null>(null);
@@ -202,8 +204,8 @@ export default function OrbitSkills() {
     <div
       ref={sectionRef as any}
       className="
-        relative w-full flex flex-col items-center text-center md:justify-center text-white overflow-hidden
-        min-h-[560px] md:min-h-[900px] lg:min-h-[1000px]  /* ger yta så ringar syns även på mobil */
+        relative w-full flex flex-col items-center text-center text-white overflow-hidden
+        min-h-[560px] md:min-h-[800px] lg:min-h-[900px]  /* ger yta så ringar syns även på mobil */
       "
     >
 
@@ -216,15 +218,19 @@ export default function OrbitSkills() {
       " 
     />
       {/* text */}
-      <h2 className="text-2xl md:text-4xl font-bold tracking-wide
+      <h2 className="
+        text-2xl md:text-4xl font-bold tracking-wide leading-tight
         bg-gradient-to-r from-purple-400 via-fuchsia-500 to-indigo-400
-        bg-clip-text text-transparent drop-shadow-[0_0_20px_rgba(167,139,250,0.25)] mt-5">
-        My core skills and the ecosystem I build with
+        bg-clip-text text-transparent
+        antialiased
+        drop-shadow-[0_0_20px_rgba(167,139,250,0.25)]
+        mt-5
+      ">
+        {t("skills.title")}
       </h2>
 
       <p className="text-base md:text-lg text-white/60 leading-relaxed max-w-2xl mx-auto mt-5 z-1">
-        Core stack: C#, JavaScript, TypeScript, databases and modern tooling.<br />
-        Everything around it is the ecosystem I use to build fullstack solutions.
+        {t("skills.subtitle")}
       </p>
 
       {/* main skills row */}

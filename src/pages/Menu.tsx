@@ -1,85 +1,109 @@
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
+import { motion } from "framer-motion"
+import BackgroundScene from "@/components/backgroundscene"
+import { useTranslation } from "react-i18next"
+import oskarBild from "../assets/oskar-bild.png"
 
-const menuCategories = [
-  {
-    id: "starters",
-    name: "Starters",
-    items: [
-      { name: "Bruschetta", price: "8.99", description: "Toasted bread with fresh tomatoes and basil" },
-      { name: "Calamari", price: "12.99", description: "Crispy fried squid with marinara sauce" },
-      { name: "Soup of the Day", price: "6.99", description: "Ask your server for today's selection" },
-    ]
-  },
-  {
-    id: "main-courses",
-    name: "Main Courses",
-    items: [
-      { name: "Grilled Salmon", price: "24.99", description: "Fresh salmon with seasonal vegetables" },
-      { name: "Beef Tenderloin", price: "29.99", description: "8oz tenderloin with red wine sauce" },
-      { name: "Vegetable Risotto", price: "18.99", description: "Creamy risotto with seasonal vegetables" },
-    ]
-  },
-  {
-    id: "desserts",
-    name: "Desserts",
-    items: [
-      { name: "Tiramisu", price: "8.99", description: "Classic Italian dessert" },
-      { name: "Chocolate Fondant", price: "9.99", description: "Warm chocolate cake with vanilla ice cream" },
-      { name: "Crème Brûlée", price: "7.99", description: "Classic French vanilla custard" },
-    ]
-  }
-]
+export const Menu = ({ onLoaded }: { onLoaded: () => void }) => {
+  const { t } = useTranslation()
 
-export const Menu = () => {
   return (
-    <div className="space-y-8">
-      <Card>
-        <CardHeader>
-          <CardTitle className="text-4xl">Our Menu</CardTitle>
-          <CardDescription>
-            Explore our carefully curated selection of dishes
-          </CardDescription>
-        </CardHeader>
-      </Card>
+    <div className="relative w-full h-screen text-white overflow-hidden">
+      <BackgroundScene onLoaded={onLoaded} />
 
-      <Accordion type="single" collapsible className="w-full">
-        {menuCategories.map((category) => (
-          <AccordionItem key={category.id} value={category.id}>
-            <AccordionTrigger className="text-xl">
-              {category.name}
-            </AccordionTrigger>
-            <AccordionContent>
-              <div className="grid gap-4">
-                {category.items.map((item, index) => (
-                  <Card key={index}>
-                    <CardContent className="pt-6">
-                      <div className="flex items-start justify-between">
-                        <div>
-                          <h3 className="font-semibold">{item.name}</h3>
-                          <p className="text-sm text-muted-foreground mt-1">
-                            {item.description}
-                          </p>
-                        </div>
-                        <Badge variant="secondary" className="text-lg">
-                          ${item.price}
-                        </Badge>
-                      </div>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-            </AccordionContent>
-          </AccordionItem>
-        ))}
-      </Accordion>
+      <div
+        className="
+          relative z-10
+          max-w-4xl mx-auto px-6 md:px-12
+          pt-24 pb-20
+          text-center
+        "
+      >
+
+        {/* Avatar */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          className="
+            relative
+            w-44 h-44 mx-auto mb-10
+            flex items-center justify-center
+            rounded-full
+          "
+        >
+          <div
+            className="
+              absolute inset-0 rounded-full
+              bg-gradient-to-br from-purple-600/70 to-pink-500/70
+              blur-[28px] opacity-70
+            "
+          />
+          <div
+            className="
+              absolute inset-0 rounded-full
+              border-4 border-purple-400/50
+              shadow-[0_0_25px_6px_rgba(168,85,247,0.6)]
+            "
+          />
+          <img
+            src={oskarBild}
+            alt="Oskar Lindqvist"
+            className="
+              relative z-10
+              w-36 h-36 rounded-full object-cover
+              shadow-[0_0_35px_8px_rgba(236,72,153,0.45)]
+              bg-black/20
+              contrast-125 saturate-110
+              transition-transform duration-500
+              hover:scale-[1.05]
+            "
+          />
+        </motion.div>
+
+        {/* Titel */}
+        <h1
+          className="
+            text-4xl md:text-5xl font-bold mb-6 pb-2
+            bg-gradient-to-b from-white to-purple-400 bg-clip-text text-transparent
+          "
+        >
+          {t("about.title")}
+        </h1>
+
+        {/* Textblock */}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1 }}
+          className="space-y-4 text-[17px] text-white/85 leading-relaxed md:leading-[1.9]"
+        >
+          <p>{t("about.p1")}</p>
+          <p>{t("about.p2")}</p>
+          <p>{t("about.p3")}</p>
+          <p>{t("about.p4")}</p>
+        </motion.div>
+
+        {/* CTA-knapp */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.3 }}
+          className="mt-10"
+        >
+          <a
+            href="/contact"
+            className="
+              inline-flex items-center gap-2
+              px-8 py-3 rounded-full text-lg font-medium
+              bg-gradient-to-r from-pink-500 to-purple-500
+              hover:opacity-90 transition
+            "
+          >
+            {t("about.cta")}
+          </a>
+        </motion.div>
+      </div>
     </div>
-  );
-};
+  )
+}
 
+export default Menu

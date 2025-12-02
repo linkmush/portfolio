@@ -1,21 +1,19 @@
 {
   "nav": {
     "home": "Home",
-    "menu": "Menu",
+    "menu": "About me",
     "gallery": "Gallery",
     "contact": "Contact",
     "language": "Language"
   },
   "hero": {
-    "hello": "Hello! I am",
-    "subtitle": "A Software Developer who",
-    "headline": "Crafting digital solutions",
-    "headlineLast": "built to last",
-    "tagline": "Because meaningful products should be scalable, secure, and delightful to use.",
-    "role": "I'm a Software Engineer.",
-    "desc1": "With a foundation in <strong>.NET</strong> and over <strong>six years in IT support</strong>, I build secure and scalable digital solutions that solve real problems with precision and creativity.",
-    "desc2": "I gained hands-on experience as a <highlight>Fullstack Developer</highlight>, taking projects from backend architecture to intuitive frontends. Today, I co-found a <strong>startup AB</strong> focused on building impactful digital products.",
-    "desc3": "Now, I’m advancing in <strong>IT Security Development</strong>, combining engineering with a <em>security-first mindset</em> to deliver technology that’s not only powerful but resilient."
+    "hello": "Hi! I'm",
+    "subtitle": "A software developer who",
+    "headline": "Builds digital solutions",
+    "headlineLast": "that last",
+    "desc1": "With a foundation in <strong>.NET</strong> and over <strong>six years in IT support</strong>, I create secure and scalable digital solutions that solve real-world problems with both precision and creativity.",
+    "desc2": "I have one year of professional experience as a <highlight>full-stack developer</highlight>, working on everything from backend architecture to modern and intuitive frontend experiences. Today, I am a co-founder of a <strong>startup AB</strong> focused on building meaningful digital products.",
+    "desc3": "I'm currently advancing my skills in <strong>IT security development</strong>, combining software engineering with a <em>security-focused mindset</em> to build technology that is not only powerful but also resilient."
   },
   "work": {
     "title": "Work Experience",
@@ -48,5 +46,173 @@
       "description": "Helped customers with technical problems and product selection.",
       "details": "As a sales associate, I assisted customers with product selection and provided technical advice.\nI used my technical knowledge to solve problems and give recommendations, requiring the ability to explain complex information in a simple way."
     }
+  },
+  "skills": {
+    "title": "My core skills and the ecosystem I build with",
+    "subtitle": "Core stack: C#, JavaScript, TypeScript, databases and modern tooling.\nEverything around it is the ecosystem I use to build fullstack solutions."
+  },
+  "projects": {
+    "Inadra": {
+      "title": "Inadra Business System",
+      "desc": "Fullstack development of a new internal business system in .NET and TypeScript.",
+      "meta": ".NET Core • TypeScript • Tailwind • MSSQL",
+      "details": "During my time as a full-stack developer at Inadra AB, I worked across the entire stack, from database modeling and relationships to backend in .NET Core Web API and frontend in TypeScript. I developed a new business system replacing an older internal system, handling database design, business logic, and UI in Tailwind. The solution improved administration of company information, staff, and customer relations.",
+      "button": "Read more",
+      "visit": "Visit website"
+    },
+    "calendra": {
+      "title": "Calendra Business System",
+      "desc": "A complete business platform for bookings, staff, economy and administration.",
+      "meta": "Fullstack • .NET • TypeScript • Design System",
+      "details": "Calendra is a modern business platform combining everything a company needs: bookings, staff management, accounting, administration and more. I worked on architecture, UX, the design system and the technical foundation for a scalable modular system.",
+      "button": "Read more",
+      "visit": "Visit website"
+    },
+    "solsidan": {
+      "title": "Solsidan Booking Platform",
+      "desc": "End-to-end booking system for restaurants with table layout, rules and automation.",
+      "meta": "React • TypeScript • Tailwind • .NET API",
+      "details": "Solsidan is a fullstack booking platform with table layout, rule-based seating and an admin interface. I built the frontend in React/TypeScript and connected to a .NET API. It manages opening hours, sittings, guest limits and tools for staff to manage reservations.",
+      "button": "Read more",
+      "visit": "Visit website"
+    },
+    "skonhetscenter": {
+      "title": "Skönhetscenter Website",
+      "desc": "A modern and clean website for a beauty salon.",
+      "meta": "React • Vite • Tailwind • Shadcn UI",
+      "details": "A static website developed for a beauty salon with focus on visuals, structure and user experience. Built in React/Vite with Tailwind and Shadcn UI.",
+      "button": "Read more",
+      "visit": "Visit website"
+    },
+    "Phonomenal": {
+      "title": "Vietnamese Restaurant Website",
+      "desc": "Modern restaurant website with an admin system for updating services and prices.",
+      "meta": "React • TypeScript • Tailwind • Custom Admin Panel",
+      "details": "A custom website built for a Vietnamese restaurant with a strong focus on menu presentation and service information. Includes a logged-in admin interface for updating content.",
+      "button": "Read more",
+      "visit": "Visit website"
+    },
+    "security-lab": {
+      "title": "Security Lab Environment",
+      "desc": "Hyper-V lab with pfSense, Suricata, Wazuh, Nessus and segmented network design.",
+      "meta": "Network security • Blue team • Lab design",
+      "details": "A personal security lab environment using pfSense firewall, Suricata IDS/IPS, Wazuh SIEM and Nessus scanning. Networks are segmented into LAN, DMZ, Guest and Management. Used for both blue team and red team practice.",
+      "button": "Read more",
+      "visit": "Visit website"
+    },
+    "vena-vardshus": {
+      "title": "Vena Värdshus Website",
+      "desc": "A modern and mobile-friendly website for a countryside inn.",
+      "meta": "React • TypeScript • Tailwind",
+      "details": "A complete website for Vena Värdshus highlighting menus, opening hours and contact details with a clean responsive layout.",
+      "button": "Read more",
+      "visit": "Visit website"
+    },
+    "aurora-restaurant": {
+      "title": "Aurora Restaurant Website",
+      "desc": "A visually strong website focused on menu, ambiance and brand identity.",
+      "meta": "React • TypeScript • Tailwind • UI/UX",
+      "details": "Aurora is a modern restaurant website emphasizing atmosphere and identity. I designed the UI/UX, layout, image selection and responsive design.",
+      "button": "Read more",
+      "visit": "Visit website"
+    },
+    "salon-template": {
+      "title": "Hair & Beauty Salon Template",
+      "desc": "A complete template for beauty salons that can be sold and customized.",
+      "meta": "React • Vite • Tailwind • Component Library",
+      "details": "A reusable template designed for salons with sections for services, pricing, gallery and contact. Optimized for fast customization.",
+      "button": "Read more",
+      "visit": "Visit website"
+    },
+    "futureflow-recon": {
+      "title": "FutureFlow Internal Recon",
+      "desc": "Network reconnaissance focusing on host discovery, services and attack surfaces.",
+      "meta": "Nmap • Enumeration • Security Analysis",
+      "details": "A security project performing internal reconnaissance with Nmap to identify hosts, ports and risks. The findings were compiled into a full attack-surface analysis.",
+      "button": "Read more",
+      "visit": "Visit website"
+    }
+  },
+    "experience": {
+    "stats": {
+      "supportYearsNumber": "6+",
+      "supportYears": "Years IT Support",
+      "devYearsNumber": "1+",
+      "devYears": "Years Development",
+      "projectsNumber": "10+",
+      "projects": "Projects Built",
+      "erpNumber": "4",
+      "erp": "Business Systems Built"
+    },
+
+    "education": {
+      "title": "Education",
+      "itsec": {
+        "title": "IT Security Developer",
+        "subtitle": "Currently studying"
+      },
+      "dotnet": {
+        "title": ".NET Fullstack Web Developer",
+        "subtitle": "Graduated May 31, 2025"
+      },
+      "aiSweden": {
+        "title": "AI Sweden Diploma",
+        "subtitle": "Advanced studies in AI & practical applications"
+      }
+    },
+
+    "work": {
+      "title": "Work Experience",
+
+      "inadra": {
+        "title": "Full-Stack Developer",
+        "subtitle": "Inadra AB",
+        "date": "Nov 18 – May 31"
+      },
+
+      "webbdesign": {
+        "title": "Full-Stack Developer",
+        "subtitle": "WebbEkonomi & WebbDesign AB",
+        "date": "June 2 – Ongoing"
+      }
+    },
+
+    "buttons": {
+      "downloadCV": "Download CV",
+      "contact": "Contact me"
+    }
+  },
+    "contact": {
+    "title": "Contact",
+    "subtitle": "Send me a message and I'll get back to you shortly.",
+    "form_title": "Send me a Message",
+    "form_description": "I'll respond as soon as possible.",
+
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone",
+    "message": "Message",
+
+    "send": "Send Message",
+    "sending": "Sending...",
+
+    "success_title": "Message Sent ✨",
+    "success_message": "Thank you! I'll get back to you shortly.",
+    "close": "Close",
+
+    "errors": {
+      "name": "Please enter your name.",
+      "email": "Please enter a valid email address.",
+      "phone": "Please enter your phone number.",
+      "message": "Please write a message (at least 10 characters)."
+    }
+  },
+  "about": {
+    "title": "About me",
+    "p1": "My name is Oskar Lindqvist and I am a solution oriented .NET developer with full-stack experience and a degree in .NET web development. I work across the entire stack from database design and backend architecture to modern and intuitive frontend solutions.",
+    "p2": "I am methodical, fast and quality-driven. In my daily work, I use advanced AI tools such as ChatGPT to accelerate development, optimize solutions, and ensure high quality.",
+    "p3": "In addition to development, I have over six years of IT experience including IT support in Bangkok which has given me broad technical knowledge and strong problem solving skills.",
+    "p4": "I am looking for a workplace where development, quality, and teamwork are essential. I am confident that I can contribute positively to your team.",
+    "cta": "Contact me →"
   }
 }
