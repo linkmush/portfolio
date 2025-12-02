@@ -91,11 +91,8 @@ export const Header = () => {
               <NavLink href="/" onClick={() => setOpen(false)}>
                 {t("nav.home")}
               </NavLink>
-              <NavLink href="/menu" onClick={() => setOpen(false)}>
+              <NavLink href="/aboutme" onClick={() => setOpen(false)}>
                 {t("nav.menu")}
-              </NavLink>
-              <NavLink href="/gallery" onClick={() => setOpen(false)}>
-                {t("nav.gallery")}
               </NavLink>
               <NavLink href="/contact" onClick={() => setOpen(false)}>
                 {t("nav.contact")}
