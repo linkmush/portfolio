@@ -7,7 +7,7 @@ export const Menu = ({ onLoaded }: { onLoaded: () => void }) => {
   const { t } = useTranslation()
 
   return (
-    <div className="relative w-full h-screen text-white overflow-hidden">
+    <div className="relative w-full min-h-screen text-white overflow-hidden">
       <BackgroundScene onLoaded={onLoaded} />
 
       <div
