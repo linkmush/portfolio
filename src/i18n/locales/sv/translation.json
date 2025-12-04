@@ -77,10 +77,10 @@
       "visit": "Besök hemsidan"
     },
     "skonhetscenter": {
-      "title": "Skönhetscenter Website",
+      "title": "Beauty Nails Website",
       "desc": "En modern och visuellt tilltalande hemsida framtagen åt en skönhetssalong.",
       "meta": "React • Vite • Tailwind • Shadcn UI",
-      "details": "Skönhetscenter är en statisk hemsida utvecklad åt kund med fokus på design, tydlig struktur och en modern användarupplevelse. Jag byggde sidan i React/Vite med Tailwind och Shadcn UI och skapade en ren, responsiv layout som fungerar bra på både mobil och desktop.",
+      "details": "Beauty Nails är en statisk hemsida utvecklad åt kund med fokus på design, tydlig struktur och en modern användarupplevelse. Jag byggde sidan i React/Vite med Tailwind och Shadcn UI och skapade en ren, responsiv layout som fungerar bra på både mobil och desktop.",
       "button": "Läs mer",
       "visit": "Besök hemsidan"
     },

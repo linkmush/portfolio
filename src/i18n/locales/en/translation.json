@@ -77,7 +77,7 @@
       "visit": "Visit website"
     },
     "skonhetscenter": {
-      "title": "Skönhetscenter Website",
+      "title": "Beauty Nails Website",
       "desc": "A modern and clean website for a beauty salon.",
       "meta": "React • Vite • Tailwind • Shadcn UI",
       "details": "A static website developed for a beauty salon with focus on visuals, structure and user experience. Built in React/Vite with Tailwind and Shadcn UI.",

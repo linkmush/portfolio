@@ -31,7 +31,7 @@ const PROJECT_ITEMS: ProjectCard[] = [
     url: "https://hotel-template-3.onrender.com"
   },
   {
-    id: "skonhetscenter",
+    id: "beautynails",
     imageUrl:
       "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&q=80&w=1600",
     url: "https://beauty-nails.onrender.com/"
