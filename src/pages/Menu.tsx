@@ -1,7 +1,7 @@
 import { motion } from "framer-motion"
 import BackgroundScene from "@/components/backgroundscene"
 import { useTranslation } from "react-i18next"
-import oskarBild from "../assets/oskar-bild.png"
+import oskarBild from "../assets/oskar-bild.jpg"
 
 export const Menu = ({ onLoaded }: { onLoaded: () => void }) => {
   const { t } = useTranslation()
@@ -49,12 +49,21 @@ export const Menu = ({ onLoaded }: { onLoaded: () => void }) => {
             alt="Oskar Lindqvist"
             className="
               relative z-10
-              w-36 h-36 rounded-full object-cover
+              w-36 h-36 rounded-full object-cover object-top
               shadow-[0_0_35px_8px_rgba(236,72,153,0.45)]
-              bg-black/20
               contrast-125 saturate-110
               transition-transform duration-500
               hover:scale-[1.05]
+            "
+          />
+
+          {/* 🔥 Soft overlay på endast bilden */}
+          <div
+            className="
+              absolute inset-0 rounded-full
+              bg-gradient-to-br from-black/20 via-purple-500/15 to-pink-500/20
+              mix-blend-multiply
+              pointer-events-none
             "
           />
         </motion.div>

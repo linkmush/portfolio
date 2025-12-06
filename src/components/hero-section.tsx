@@ -1,5 +1,5 @@
 import { motion } from "framer-motion"
-import oskarBild from "../assets/oskar-bild.png"
+import oskarBild from "../assets/oskar-bild.jpg"
 import { useTranslation, Trans } from "react-i18next"
 
 export function HeroContent() {
@@ -29,18 +29,20 @@ export function HeroContent() {
             shadow-[0_0_35px_rgba(168,85,247,0.35)]
           "
         >
-          <img
-            src={oskarBild}
-            alt="Oskar Lindqvist"
-            className="
-              w-44 h-44 rounded-full object-cover 
-              bg-black/20
-              shadow-xl
-              contrast-125 saturate-110
-              transition-transform duration-500
-              group-hover:scale-[1.05]
-            "
-          />
+        <img
+          src={oskarBild}
+          alt="Oskar Lindqvist"
+        className="w-44 h-44 rounded-full object-cover object-top"
+        />
+
+        {/* OVERLAY */}
+        <div
+          className="
+            absolute inset-0 rounded-full 
+            bg-black/10
+            mix-blend-multiply
+          "
+        />
         </motion.div>
 
         <p className="mt-4 text-sm text-white/70">
